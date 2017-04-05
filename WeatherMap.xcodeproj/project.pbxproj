@@ -38,8 +38,8 @@
 		82A15F581E9532FB0088D43E = {
 			isa = PBXGroup;
 			children = (
-				82A15F631E9532FB0088D43E /* WeatherMap */,
 				82A15F621E9532FB0088D43E /* Products */,
+				82A15F631E9532FB0088D43E /* WeatherMap */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,9 +54,9 @@
 		82A15F631E9532FB0088D43E /* WeatherMap */ = {
 			isa = PBXGroup;
 			children = (
-				82A15F761E9534980088D43E /* UI */,
 				82A15F771E9534A10088D43E /* Controller */,
 				82A15F781E9534AF0088D43E /* Support */,
+				82A15F761E9534980088D43E /* UI */,
 			);
 			path = WeatherMap;
 			sourceTree = "<group>";
@@ -64,10 +64,11 @@
 		82A15F761E9534980088D43E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				82A15F681E9532FB0088D43E /* Main.storyboard */,
 				82A15F6D1E9532FB0088D43E /* LaunchScreen.storyboard */,
+				82A15F681E9532FB0088D43E /* Main.storyboard */,
 			);
 			name = UI;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		82A15F771E9534A10088D43E /* Controller */ = {
@@ -76,16 +77,18 @@
 				82A15F661E9532FB0088D43E /* ViewController.swift */,
 			);
 			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		82A15F781E9534AF0088D43E /* Support */ = {
 			isa = PBXGroup;
 			children = (
 				82A15F641E9532FB0088D43E /* AppDelegate.swift */,
-				82A15F701E9532FB0088D43E /* Info.plist */,
 				82A15F6B1E9532FB0088D43E /* Assets.xcassets */,
+				82A15F701E9532FB0088D43E /* Info.plist */,
 			);
 			name = Support;
+			path = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +178,7 @@
 				82A15F691E9532FB0088D43E /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		82A15F6D1E9532FB0088D43E /* LaunchScreen.storyboard */ = {
@@ -183,6 +187,7 @@
 				82A15F6E1E9532FB0088D43E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -288,7 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G9572JBENB;
-				INFOPLIST_FILE = WeatherMap/Info.plist;
+				INFOPLIST_FILE = WeatherMap/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.limadeveloper.tests.luizalabs.WeatherMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -301,7 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G9572JBENB;
-				INFOPLIST_FILE = WeatherMap/Info.plist;
+				INFOPLIST_FILE = WeatherMap/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.limadeveloper.tests.luizalabs.WeatherMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
