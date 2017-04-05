@@ -7,4 +7,4 @@
 - Swift 3.1
 
 ## Pods
-- OpenWeatherMapAPIConsumer
+- OpenWeatherMapAPIConsumer (https://github.com/jolucama/OpenWeatherMapAPIConsumer)
