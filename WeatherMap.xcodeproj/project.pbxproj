@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		82A15F651E9532FB0088D43E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A15F641E9532FB0088D43E /* AppDelegate.swift */; };
-		82A15F671E9532FB0088D43E /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A15F661E9532FB0088D43E /* ListController.swift */; };
-		82A15F6A1E9532FB0088D43E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A15F681E9532FB0088D43E /* Main.storyboard */; };
+		82A15F671E9532FB0088D43E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A15F661E9532FB0088D43E /* HomeController.swift */; };
 		82A15F6C1E9532FB0088D43E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82A15F6B1E9532FB0088D43E /* Assets.xcassets */; };
-		82A15F6F1E9532FB0088D43E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82A15F6D1E9532FB0088D43E /* LaunchScreen.storyboard */; };
 		82C371C81E9584B300DD1839 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C371C71E9584B300DD1839 /* Extensions.swift */; };
 		82C371CA1E95877200DD1839 /* DefaultNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C371C91E95877200DD1839 /* DefaultNavigationController.swift */; };
 		82C506C41E95BCF800F2707C /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C506C31E95BCF800F2707C /* Global.swift */; };
+		82F920B01E96761100F95CE0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82F920B21E96761100F95CE0 /* Localizable.strings */; };
+		82F920BB1E9676AC00F95CE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F920BA1E9676AC00F95CE0 /* Main.storyboard */; };
+		82F920C01E96770C00F95CE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82F920BF1E96770C00F95CE0 /* LaunchScreen.storyboard */; };
 		C657FA1D5EDB894361CE3E84 /* Pods_WeatherMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BDBC40E85A2A997D4A20100 /* Pods_WeatherMap.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,14 +24,16 @@
 		7BDBC40E85A2A997D4A20100 /* Pods_WeatherMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A15F611E9532FB0088D43E /* WeatherMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82A15F641E9532FB0088D43E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		82A15F661E9532FB0088D43E /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
-		82A15F691E9532FB0088D43E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		82A15F661E9532FB0088D43E /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		82A15F6B1E9532FB0088D43E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		82A15F6E1E9532FB0088D43E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82A15F701E9532FB0088D43E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		82C371C71E9584B300DD1839 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		82C371C91E95877200DD1839 /* DefaultNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultNavigationController.swift; sourceTree = "<group>"; };
 		82C506C31E95BCF800F2707C /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		82F920B11E96761100F95CE0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		82F920B31E96761700F95CE0 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		82F920BA1E9676AC00F95CE0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		82F920BF1E96770C00F95CE0 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A003314C4FFAAF7E8AFEE18B /* Pods-WeatherMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeatherMap/Pods-WeatherMap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,8 +97,8 @@
 		82A15F761E9534980088D43E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				82A15F6D1E9532FB0088D43E /* LaunchScreen.storyboard */,
-				82A15F681E9532FB0088D43E /* Main.storyboard */,
+				82F920BF1E96770C00F95CE0 /* LaunchScreen.storyboard */,
+				82F920BA1E9676AC00F95CE0 /* Main.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -104,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				82C371C91E95877200DD1839 /* DefaultNavigationController.swift */,
-				82A15F661E9532FB0088D43E /* ListController.swift */,
+				82A15F661E9532FB0088D43E /* HomeController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -116,9 +119,18 @@
 				82C506C31E95BCF800F2707C /* Global.swift */,
 				82C371C71E9584B300DD1839 /* Extensions.swift */,
 				82A15F701E9532FB0088D43E /* Info.plist */,
-				82A15F6B1E9532FB0088D43E /* Assets.xcassets */,
+				82F920B21E96761100F95CE0 /* Localizable.strings */,
+				82F920AD1E96755D00F95CE0 /* Resources */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		82F920AD1E96755D00F95CE0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82A15F6B1E9532FB0088D43E /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +180,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 82A15F581E9532FB0088D43E;
 			productRefGroup = 82A15F621E9532FB0088D43E /* Products */;
@@ -184,9 +197,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A15F6F1E9532FB0088D43E /* LaunchScreen.storyboard in Resources */,
+				82F920B01E96761100F95CE0 /* Localizable.strings in Resources */,
+				82F920C01E96770C00F95CE0 /* LaunchScreen.storyboard in Resources */,
 				82A15F6C1E9532FB0088D43E /* Assets.xcassets in Resources */,
-				82A15F6A1E9532FB0088D43E /* Main.storyboard in Resources */,
+				82F920BB1E9676AC00F95CE0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82A15F671E9532FB0088D43E /* ListController.swift in Sources */,
+				82A15F671E9532FB0088D43E /* HomeController.swift in Sources */,
 				82C371C81E9584B300DD1839 /* Extensions.swift in Sources */,
 				82A15F651E9532FB0088D43E /* AppDelegate.swift in Sources */,
 				82C506C41E95BCF800F2707C /* Global.swift in Sources */,
@@ -256,22 +270,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		82A15F681E9532FB0088D43E /* Main.storyboard */ = {
+		82F920B21E96761100F95CE0 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				82A15F691E9532FB0088D43E /* Base */,
+				82F920B11E96761100F95CE0 /* en */,
+				82F920B31E96761700F95CE0 /* pt-BR */,
 			);
-			name = Main.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
-		82A15F6D1E9532FB0088D43E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				82A15F6E1E9532FB0088D43E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			path = .;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -281,6 +286,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -332,6 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

@@ -12,6 +12,12 @@ class DefaultNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        updateUI()
+    }
+    
+    fileprivate func updateUI() {
+        navigationBar.tintColor = Colors.default
+        navigationBar.titleTextAttributes = [NSFontAttributeName: Fonts.getDefaultBold(withSize: .normal)]
     }
 }

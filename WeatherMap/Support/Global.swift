@@ -11,11 +11,56 @@ import UIKit
 
 struct Colors {
     static let `default` = #colorLiteral(red: 0, green: 0.5843137255, blue: 0.3254901961, alpha: 1)
+    static let gray = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+}
+
+struct Images {
+    static let list = #imageLiteral(resourceName: "List-50")
+    static let map1 = #imageLiteral(resourceName: "Map1-50")
+    static let map2 = #imageLiteral(resourceName: "Map2-50")
 }
 
 struct Texts {
     
+    struct Titles {
+        static let defaultNav = "LuizaLabs Challenge"
+    }
+    
     struct Messages {
         static let emptyData = "No data"
+    }
+}
+
+struct Fonts {
+    
+    enum Size: CGFloat {
+        case verySmall = 12
+        case small = 14
+        case normal = 15
+        case `default` = 17
+        case medium = 20
+        case bigger = 26
+    }
+    
+    static func getDefault(withSize: Size = .default) -> UIFont {
+        return .systemFont(ofSize: withSize.rawValue)
+    }
+    
+    static func getDefaultBold(withSize: Size = .default) -> UIFont {
+        return .boldSystemFont(ofSize: withSize.rawValue)
+    }
+}
+
+struct VisibleType {
+    
+    enum Degree: String {
+        case celsius = "ºC"
+        case fahrenheit = "ºF"
+        case kelvin = "K"
+    }
+    
+    enum VisibleMode {
+        case list
+        case map
     }
 }
