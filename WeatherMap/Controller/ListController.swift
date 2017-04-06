@@ -35,6 +35,15 @@ class ListController: UIViewController {
         tableView.backgroundColor = .white
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.allowsSelection = (tableData ?? []).count > 0
+    }
+    
+    fileprivate func setupStyleButton() {
+    
+    }
+    
+    fileprivate func setupDegreeButton() {
+        
     }
 }
 
@@ -52,6 +61,9 @@ extension ListController: UITableViewDataSource, UITableViewDelegate {
         
         guard let tableData = tableData, tableData.count > 0 else {
             cell = tableView.dequeueReusableCell(withIdentifier: emptyCell, for: indexPath)
+            cell.textLabel?.text = Texts.Messages.emptyData
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = Colors.default
             return cell
         }
         
