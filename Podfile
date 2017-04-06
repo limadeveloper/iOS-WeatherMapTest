@@ -8,5 +8,6 @@ target 'WeatherMap' do
 
   # Pods for WeatherMap
   pod 'OpenWeatherMapAPIConsumer'
+  pod 'AlamofireImage'
 
 end

@@ -22,12 +22,20 @@ struct Images {
 
 struct Texts {
     
+    struct Buttons {
+        static let ok = "Ok"
+        static let no = "No"
+        static let cancel = "Cancel"
+    }
+    
     struct Titles {
         static let defaultNav = "LuizaLabs Challenge"
+        static let alert = "Alert"
     }
     
     struct Messages {
         static let emptyData = "No data"
+        static let enableLocation = "To use location services, you need to enable it on settings."
     }
 }
 
@@ -62,5 +70,25 @@ struct VisibleType {
     enum VisibleMode {
         case list
         case map
+    }
+}
+
+struct Alert {
+    
+    static func enableLocation(target: AnyObject) {
+        
+        let no = UIAlertAction(title: Texts.Buttons.no, style: .destructive, handler: nil)
+        
+        let yes = UIAlertAction(title: Texts.Buttons.ok, style: .default) { action in
+            guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+        let alert = UIAlertController(title: Texts.Titles.alert, message: Texts.Messages.enableLocation, preferredStyle: .alert)
+        
+        alert.addAction(no)
+        alert.addAction(yes)
+        
+        target.present(alert, animated: true, completion: nil)
     }
 }
