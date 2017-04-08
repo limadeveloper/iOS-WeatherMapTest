@@ -18,9 +18,10 @@ class HomeController: UIViewController {
     
     fileprivate let defaultCell = "cell"
     fileprivate let emptyCell = "emptyCell"
-    fileprivate let rowHeightDefault: CGFloat = 120
+    fileprivate let rowHeightDefault: CGFloat = 144
     fileprivate let rowHeightEmpty: CGFloat = 50
     fileprivate var tableData: [Weather]?
+    fileprivate var amountResults = 50
     fileprivate var degreeButton: UIBarButtonItem!
     fileprivate var visibleModeButton: UIBarButtonItem!
     fileprivate var degreeTypeSelected: VisibleType.Degree = .celsius
@@ -51,6 +52,7 @@ class HomeController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.allowsSelection = (tableData ?? []).count > 0
+        tableView.separatorStyle = .none
         
         navigationItem.title = NSLocalizedString(Texts.Titles.defaultNav, comment: "").uppercased()
         
@@ -135,7 +137,7 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: defaultCell, for: indexPath) as! HomeDefaultTableViewCell
-        cell.setup(data: tableData[indexPath.row])
+        cell.setup(data: tableData[indexPath.row], temperatureUnit: degreeTypeSelected)
         
         return cell
     }
@@ -185,11 +187,13 @@ extension HomeController: CLLocationManagerDelegate {
         mapView.setRegion(region, animated: true)
         mapView.showsUserLocation = true
         
-        weather.fetchWeatherForNearbyLocations(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, amountResults: 50) { (weatherData, error) in
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        weather.fetchWeatherForNearbyLocations(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, amountResults: amountResults) { (weatherData, error) in
             
             DispatchQueue.main.async { [weak self] in
                 
-                guard error == nil, let data = data else {
+                guard error == nil, let data = weatherData else {
                     self?.weatherError = error;
                     self?.tableView.reloadData()
                     return
@@ -199,8 +203,12 @@ extension HomeController: CLLocationManagerDelegate {
                     self?.tableData = []
                 }
                 
-                self?.tableData?.append(data)
+                self?.tableData = data
                 self?.tableView.reloadData()
+                
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                
+                manager.stopUpdatingLocation()
             }
         }
     }
