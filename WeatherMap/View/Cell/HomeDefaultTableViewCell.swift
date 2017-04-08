@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OpenWeatherMapAPIConsumer
 
 class HomeDefaultTableViewCell: UITableViewCell {
 
@@ -17,12 +16,12 @@ class HomeDefaultTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var temperatureMaxAndMinLabel: UILabel!
     @IBOutlet fileprivate weak var picture: UIImageView!
     
-    fileprivate var data: ResponseOpenWeatherMapProtocol? {
+    fileprivate var data: Any? {
         didSet {
             
             guard let data = data else { return }
             
-            print("city name: \(data.getCityName())")
+            print("data: \(data)")
         }
     }
     
@@ -36,7 +35,7 @@ class HomeDefaultTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func setup(data: ResponseOpenWeatherMapProtocol) {
+    func setup(data: Any) {
         self.data = data
     }
 }

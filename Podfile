@@ -7,7 +7,6 @@ target 'WeatherMap' do
   use_frameworks!
 
   # Pods for WeatherMap
-  pod 'OpenWeatherMapAPIConsumer'
-  pod 'AlamofireImage'
+  pod 'Gloss'
 
 end

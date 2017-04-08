@@ -1,18 +1,12 @@
 PODS:
-  - Alamofire (4.4.0)
-  - AlamofireImage (3.2.0):
-    - Alamofire (~> 4.1)
-  - OpenWeatherMapAPIConsumer (0.0.2)
+  - Gloss (1.2.4)
 
 DEPENDENCIES:
-  - AlamofireImage
-  - OpenWeatherMapAPIConsumer
+  - Gloss
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  OpenWeatherMapAPIConsumer: eb8d4ff8612d11fad91abfb178d1f2f18559b7b8
+  Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
 
-PODFILE CHECKSUM: b0fe7e460c8e282e89d87489217c197080488f6e
+PODFILE CHECKSUM: 103dc11dcbc56045fb466d985a0764408f69a4c1
 
 COCOAPODS: 1.2.1.rc.1

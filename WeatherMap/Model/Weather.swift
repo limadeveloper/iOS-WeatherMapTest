@@ -7,11 +7,9 @@
 //
 
 import Foundation
-import OpenWeatherMapAPIConsumer
+import Gloss
 
 struct Weather {
-
-    fileprivate let weatherAPI = OpenWeatherMapAPI(apiKey: API.key, forType: OpenWeatherMapType.Current)
     
     init() {}
 }
@@ -21,31 +19,41 @@ extension Weather {
     struct API {
         fileprivate static let key = "4828e99077d6198e6fd9e3c9bba49655"
     }
+    
+    struct Urls {
+        fileprivate static let weatherMap = "http://api.openweathermap.org/data/2.5/find"
+    }
+    
+    struct Keys {
+        static let list = "list"
+    }
 }
 
 extension Weather {
     
-    func performWeatherRequest(temperatureUnit: VisibleType.Degree, latitude: Double, longitude: Double, completion: ((ResponseOpenWeatherMapProtocol?, String?) -> ())?) {
+    func fetchWeatherForNearbyLocations(latitude: Double, longitude: Double, amountResults: Int, completion: (([Weather]?, String?) -> ())?) {
         
-        var unit: TemperatureFormat = .Celsius
+        var result = [JSON]()
+        let session = URLSession.shared
+        let stringURL = "\(Urls.weatherMap)?APPID=\(API.key)&lat=\(latitude)&lon=\(longitude)&cnt=\(amountResults)"
+        let requestURL = URLRequest(url: URL(string: stringURL)!)
         
-        switch temperatureUnit {
-            case .fahrenheit: unit = .Fahrenheit
-            case .kelvin: unit = .Kelvin
-            default: unit = .Celsius
-        }
-        
-        weatherAPI.setTemperatureUnit(unit: unit)
-        weatherAPI.weather(byLatitude: latitude, andLongitude: longitude)
-        
-        weatherAPI.performWeatherRequest { (data, response, error) in
-            guard error == nil, let data = data else { completion?(nil, error?.localizedDescription); return }
+        let request = session.dataTask(with: requestURL) { (data, response, error) in
+            
             do {
-                let responseWeatherApi = try CurrentResponseOpenWeatherMap(data: data)
-                completion?(responseWeatherApi, nil)
+            
+                guard error == nil, let data = data else { completion?(nil, error?.localizedDescription); return }
+                guard let jsonData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? JSON, let list = jsonData[Keys.list] as? JSON, list.count > 0 else { completion?(nil, Texts.Messages.emptyData); return }
+                
+                for item in list {
+                    result.append(item)
+                }
+                
             }catch {
                 completion?(nil, error.localizedDescription)
             }
         }
+        
+        request.resume()
     }
 }

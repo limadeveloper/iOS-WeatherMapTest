@@ -9,7 +9,6 @@
 import UIKit
 import MapKit
 import CoreLocation
-import OpenWeatherMapAPIConsumer
 
 class HomeController: UIViewController {
     
@@ -21,7 +20,7 @@ class HomeController: UIViewController {
     fileprivate let emptyCell = "emptyCell"
     fileprivate let rowHeightDefault: CGFloat = 120
     fileprivate let rowHeightEmpty: CGFloat = 50
-    fileprivate var tableData: [ResponseOpenWeatherMapProtocol]?
+    fileprivate var tableData: [Weather]?
     fileprivate var degreeButton: UIBarButtonItem!
     fileprivate var visibleModeButton: UIBarButtonItem!
     fileprivate var degreeTypeSelected: VisibleType.Degree = .celsius
@@ -186,7 +185,8 @@ extension HomeController: CLLocationManagerDelegate {
         mapView.setRegion(region, animated: true)
         mapView.showsUserLocation = true
         
-        weather.performWeatherRequest(temperatureUnit: degreeTypeSelected, latitude: location.coordinate.latitude, longitude: location.coordinate.longitude) { (data, error) in
+        weather.fetchWeatherForNearbyLocations(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, amountResults: 50) { (weatherData, error) in
+            
             DispatchQueue.main.async { [weak self] in
                 
                 guard error == nil, let data = data else {
