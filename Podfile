@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.2'
+platform :ios, '9.0'
 
 target 'WeatherMap' do
   
@@ -8,5 +8,6 @@ target 'WeatherMap' do
 
   # Pods for WeatherMap
   pod 'Gloss'
+  pod 'AlamofireImage'
 
 end

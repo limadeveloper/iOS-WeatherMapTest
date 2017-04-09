@@ -18,32 +18,34 @@ class HomeController: UIViewController {
     
     fileprivate let defaultCell = "cell"
     fileprivate let emptyCell = "emptyCell"
-    fileprivate let rowHeightDefault: CGFloat = 144
+    fileprivate let rowHeightDefault: CGFloat = 160
     fileprivate let rowHeightEmpty: CGFloat = 50
     fileprivate var tableData: [Weather]?
+    fileprivate var annotations: [AnnotationMap]?
     fileprivate var amountResults = 50
     fileprivate var degreeButton: UIBarButtonItem!
     fileprivate var visibleModeButton: UIBarButtonItem!
     fileprivate var degreeTypeSelected: VisibleType.Degree = .celsius
     fileprivate var visibleModeSelected: VisibleType.VisibleMode = .list
     fileprivate var weather = Weather()
-    fileprivate var weatherError: String?
+    fileprivate var weatherStatusMessage: String?
     fileprivate let locationManager = CLLocationManager()
     fileprivate var locationObject: CLLocation?
+    fileprivate let refreshControl = UIRefreshControl()
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupLocation()
-        
         updateUI()
-        
         showTableView()
     }
     
     // MARK: - Actions
     fileprivate func updateUI() {
+        
+        weatherStatusMessage = NSLocalizedString(Texts.Messages.loading, comment: "")
         
         let footer = UIView(frame: .zero)
         
@@ -53,6 +55,15 @@ class HomeController: UIViewController {
         tableView.delegate = self
         tableView.allowsSelection = (tableData ?? []).count > 0
         tableView.separatorStyle = .none
+        
+        refreshControl.tintColor = Colors.default
+        refreshControl.addTarget(self, action: #selector(refreshData(sender:)), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
         
         navigationItem.title = NSLocalizedString(Texts.Titles.defaultNav, comment: "").uppercased()
         
@@ -98,6 +109,7 @@ class HomeController: UIViewController {
                 degreeTypeSelected = .fahrenheit
         }
         
+        locationManager.requestLocation()
         updateUI()
     }
     
@@ -112,7 +124,14 @@ class HomeController: UIViewController {
                 showMapView()
         }
         
+        locationManager.requestLocation()
         updateUI()
+    }
+    
+    dynamic fileprivate func refreshData(sender: UIRefreshControl) {
+        weatherStatusMessage = NSLocalizedString(Texts.Messages.loading, comment: "")
+        tableView.reloadData()
+        locationManager.requestLocation()
     }
 }
 
@@ -128,7 +147,7 @@ extension HomeController: UITableViewDataSource, UITableViewDelegate {
         
         guard let tableData = tableData, tableData.count > 0 else {
             let cell = tableView.dequeueReusableCell(withIdentifier: emptyCell, for: indexPath)
-            cell.textLabel?.text = weatherError ?? NSLocalizedString(Texts.Messages.emptyData, comment: "")
+            cell.textLabel?.text = weatherStatusMessage ?? NSLocalizedString(Texts.Messages.emptyData, comment: "")
             cell.textLabel?.textAlignment = .center
             cell.textLabel?.textColor = Colors.gray
             cell.textLabel?.numberOfLines = 0
@@ -180,12 +199,11 @@ extension HomeController: CLLocationManagerDelegate {
         
         guard let location = locations.first else { return }
         
-        let span = MKCoordinateSpanMake(0.01, 0.01)
+        let span = MKCoordinateSpanMake(0.75, 0.75)
         let userLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
         let region = MKCoordinateRegionMake(userLocation, span)
         
-        mapView.setRegion(region, animated: true)
-        mapView.showsUserLocation = true
+        self.mapView.removeAnnotations(mapView.annotations)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
@@ -194,16 +212,27 @@ extension HomeController: CLLocationManagerDelegate {
             DispatchQueue.main.async { [weak self] in
                 
                 guard error == nil, let data = weatherData else {
-                    self?.weatherError = error;
+                    self?.weatherStatusMessage = error;
                     self?.tableView.reloadData()
                     return
                 }
                 
-                if self?.tableData == nil {
-                    self?.tableData = []
-                }
+                self?.tableData = []
+                self?.annotations = []
                 
                 self?.tableData = data
+                self?.annotations = AnnotationMap.getAnnotations(fromWeatherData: self?.tableData, temperatureType: self?.degreeTypeSelected)
+                
+                self?.mapView.setRegion(region, animated: true)
+                self?.mapView.showsUserLocation = true
+                self?.mapView.showsScale = true
+                
+                if let points = self?.annotations, points.count > 0 {
+                    self?.mapView.addAnnotations(points)
+                }
+                
+                self?.weatherStatusMessage = nil
+                self?.refreshControl.endRefreshing()
                 self?.tableView.reloadData()
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false

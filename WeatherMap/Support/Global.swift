@@ -36,6 +36,7 @@ struct Texts {
     struct Messages {
         static let emptyData = "No data"
         static let enableLocation = "To use location services, you need to enable it on settings."
+        static let loading = "Loading..."
     }
 }
 
@@ -80,8 +81,14 @@ struct Alert {
         let no = UIAlertAction(title: Texts.Buttons.no, style: .destructive, handler: nil)
         
         let yes = UIAlertAction(title: Texts.Buttons.ok, style: .default) { action in
+            
             guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
         }
         
         let alert = UIAlertController(title: Texts.Titles.alert, message: Texts.Messages.enableLocation, preferredStyle: .alert)

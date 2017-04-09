@@ -12,6 +12,7 @@
 		8203AB9E1E9939C0001F5317 /* WeatherMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203AB9D1E9939C0001F5317 /* WeatherMain.swift */; };
 		8203ABA01E993F5F001F5317 /* WeatherWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203AB9F1E993F5F001F5317 /* WeatherWeather.swift */; };
 		8203ABA21E99406B001F5317 /* WeatherWind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8203ABA11E99406B001F5317 /* WeatherWind.swift */; };
+		82494A371E99AABF00EEE57F /* AnnotationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82494A361E99AABF00EEE57F /* AnnotationMap.swift */; };
 		825A6A441E96C150006860E7 /* HomeDefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A6A431E96C150006860E7 /* HomeDefaultTableViewCell.swift */; };
 		825A6A481E96C3AB006860E7 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825A6A471E96C3AB006860E7 /* Weather.swift */; };
 		82A15F651E9532FB0088D43E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A15F641E9532FB0088D43E /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 		8203AB9D1E9939C0001F5317 /* WeatherMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherMain.swift; path = Model/WeatherMain.swift; sourceTree = "<group>"; };
 		8203AB9F1E993F5F001F5317 /* WeatherWeather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherWeather.swift; path = Model/WeatherWeather.swift; sourceTree = "<group>"; };
 		8203ABA11E99406B001F5317 /* WeatherWind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherWind.swift; path = Model/WeatherWind.swift; sourceTree = "<group>"; };
+		82494A361E99AABF00EEE57F /* AnnotationMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationMap.swift; path = Model/AnnotationMap.swift; sourceTree = "<group>"; };
 		825A6A431E96C150006860E7 /* HomeDefaultTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeDefaultTableViewCell.swift; path = View/Cell/HomeDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		825A6A471E96C3AB006860E7 /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = Model/Weather.swift; sourceTree = "<group>"; };
 		82A15F611E9532FB0088D43E /* WeatherMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 				8203AB9D1E9939C0001F5317 /* WeatherMain.swift */,
 				8203AB9F1E993F5F001F5317 /* WeatherWeather.swift */,
 				8203ABA11E99406B001F5317 /* WeatherWind.swift */,
+				82494A361E99AABF00EEE57F /* AnnotationMap.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82A15F671E9532FB0088D43E /* HomeController.swift in Sources */,
+				82494A371E99AABF00EEE57F /* AnnotationMap.swift in Sources */,
 				8203AB9E1E9939C0001F5317 /* WeatherMain.swift in Sources */,
 				82C371C81E9584B300DD1839 /* Extensions.swift in Sources */,
 				82A15F651E9532FB0088D43E /* AppDelegate.swift in Sources */,
@@ -376,7 +380,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -422,7 +426,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -439,7 +443,7 @@
 				DEVELOPMENT_TEAM = G9572JBENB;
 				INFOPLIST_FILE = WeatherMap/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.limadeveloper.tests.luizalabs.WeatherMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.limadeveloper.tests.luizalabs.weathermap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -453,7 +457,7 @@
 				DEVELOPMENT_TEAM = G9572JBENB;
 				INFOPLIST_FILE = WeatherMap/Support/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.limadeveloper.tests.luizalabs.WeatherMap;
+				PRODUCT_BUNDLE_IDENTIFIER = com.limadeveloper.tests.luizalabs.weathermap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

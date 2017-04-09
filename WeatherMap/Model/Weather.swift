@@ -41,7 +41,12 @@ extension Weather {
     }
     
     struct Urls {
+        
         fileprivate static let weatherMap = "http://api.openweathermap.org/data/2.5/find"
+        
+        fileprivate static func getImageUrl(fromIcon: String) -> Url {
+            return URL(string: "http://openweathermap.org/img/w/\(fromIcon).png")
+        }
     }
     
     struct Keys {
@@ -60,11 +65,17 @@ extension Weather {
 
 extension Weather {
     
-    func fetchWeatherForNearbyLocations(latitude: Double, longitude: Double, amountResults: Int, completion: (([Weather]?, String?) -> ())?) {
+    func fetchWeatherForNearbyLocations(latitude: Double, longitude: Double, amountResults: Int = 0, completion: (([Weather]?, String?) -> ())?) {
         
         var result = [Weather]()
         let session = URLSession.shared
-        let stringURL = "\(Urls.weatherMap)?APPID=\(API.key)&lat=\(latitude)&lon=\(longitude)&cnt=\(amountResults)"
+        let language = Locale.current.languageCode ?? "en"
+        var stringURL = "\(Urls.weatherMap)?APPID=\(API.key)&lat=\(latitude)&lon=\(longitude)&cnt=\(amountResults)&lang=\(language)"
+        
+        if amountResults == 0 {
+            stringURL = "\(Urls.weatherMap)?APPID=\(API.key)&lat=\(latitude)&lon=\(longitude)&lang=\(language)"
+        }
+        
         let requestURL = URLRequest(url: URL(string: stringURL)!)
         
         let request = session.dataTask(with: requestURL) { (data, response, error) in
@@ -110,7 +121,7 @@ extension Weather {
         case let x where x == 781 || x >= 958: return "🌪"
         case let x where x == 800:
             
-            //Simulate day/night mode for clear skies condition -> sunset @ 18:00
+            // Simulate day/night mode for clear skies condition -> sunset @ 18:00
             let currentDateFormatter = DateFormatter()
             currentDateFormatter.dateFormat = "ddMMyyyy"
             let currentDateString = currentDateFormatter.string(from: Date())
@@ -120,7 +131,7 @@ extension Weather {
             let zeroHourDate = zeroHourDateFormatter.date(from: (currentDateString + "000000"))!
             
             guard Date().timeIntervalSince(zeroHourDate) > 64800 else { return "☀️" }
-            return "✨"
+            return "🌃"
             
         case let x where x == 801: return "🌤"
         case let x where x == 802: return "⛅️"
