@@ -8,6 +8,5 @@ target 'WeatherMap' do
 
   # Pods for WeatherMap
   pod 'Gloss'
-  pod 'AlamofireImage'
 
 end

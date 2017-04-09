@@ -15,6 +15,7 @@ class HomeDefaultTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var temperatureLabel: UILabel!
     @IBOutlet fileprivate weak var temperatureMaxAndMinLabel: UILabel!
     @IBOutlet fileprivate weak var iconLabel: UILabel!
+    @IBOutlet fileprivate weak var iconImage: UIImageView!
     @IBOutlet fileprivate weak var backView: UIView!
     
     fileprivate var temperatureUnit: VisibleType.Degree?

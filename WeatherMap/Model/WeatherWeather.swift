@@ -12,17 +12,22 @@ import Gloss
 struct WeatherWeather: Decodable {
     
     var description: String?
-    var emoji: String?
+    var icon: String?
     var id: Int?
     var main: String?
+    var urlImage: URL?
     
     init() {}
     
     init?(json: JSON) {
+        
         self.description = Keys.description <~~ json
-        self.emoji = Keys.emoji <~~ json
+        self.icon = Keys.icon <~~ json
         self.id = Keys.id <~~ json
         self.main = Keys.main <~~ json
+        
+        guard let icon = self.icon else { return }
+        self.urlImage = URL(string: "http://openweathermap.org/img/w/\(icon).png")
     }
 }
 
@@ -30,7 +35,7 @@ extension WeatherWeather {
     
     struct Keys {
         static let description = "description"
-        static let emoji = "icon"
+        static let icon = "icon"
         static let id = "id"
         static let main = "main"
     }

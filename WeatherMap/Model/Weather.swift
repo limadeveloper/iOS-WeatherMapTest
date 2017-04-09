@@ -43,10 +43,6 @@ extension Weather {
     struct Urls {
         
         fileprivate static let weatherMap = "http://api.openweathermap.org/data/2.5/find"
-        
-        fileprivate static func getImageUrl(fromIcon: String) -> Url {
-            return URL(string: "http://openweathermap.org/img/w/\(fromIcon).png")
-        }
     }
     
     struct Keys {
