@@ -10,3 +10,7 @@
 - Gloss (https://github.com/hkellaway/Gloss)
 
 ## Screenshots
+![Screenshot_1.png](https://github.com/limadeveloper/iOS-WeatherMapTest/blob/development/Docs/Images/screenshots/01.png)
+![Screenshot_2.png](https://github.com/limadeveloper/iOS-WeatherMapTest/blob/development/Docs/Images/screenshots/02.png)
+![Screenshot_3.png](https://github.com/limadeveloper/iOS-WeatherMapTest/blob/development/Docs/Images/screenshots/03.png)
+![Screenshot_4.png](https://github.com/limadeveloper/iOS-WeatherMapTest/blob/development/Docs/Images/screenshots/04.png)
