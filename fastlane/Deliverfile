@@ -1,0 +1,32 @@
+##################### More Options ######################
+# If you want to have even more control, check out the documentation
+# https://github.com/fastlane/fastlane/blob/master/deliver/Deliverfile.md
+
+
+###################### Automatically generated ######################
+# Feel free to remove the following line if you use fastlane (which you should)
+
+app_identifier "com.limadeveloper.tests.luizalabs.weathermap" # The bundle identifier of your app
+username "" # your Apple ID user
+
+ipa "./fastlane/builds/Weather.ipa"
+app_version "1.0"
+screenshots_path "./fastlane/screenshots"
+metadata_path "./fastlane/metadata"
+price_tier 0
+
+app_review_information(
+  first_name: "John",
+  last_name: "Lima",
+  phone_number: "",
+  email_address: "",
+  demo_user: "",
+  demo_password: "",
+  notes: ""
+)
+
+automatic_release true
+
+submit_for_review false
+
+app_icon './fastlane/builds/AppIcon.png'
