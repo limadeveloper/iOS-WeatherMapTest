@@ -9,6 +9,9 @@
 ## Pods
 - Gloss (https://github.com/hkellaway/Gloss)
 
+## Continuous Integration
+- fastlane (https://fastlane.tools)
+
 ## Screenshots
 ![Screenshot_1.png](https://github.com/limadeveloper/iOS-WeatherMapTest/blob/development/Docs/Images/screenshots/01.png)
 ![Screenshot_2.png](https://github.com/limadeveloper/iOS-WeatherMapTest/blob/development/Docs/Images/screenshots/02.png)
