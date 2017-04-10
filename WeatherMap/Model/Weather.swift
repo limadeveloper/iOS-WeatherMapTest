@@ -8,6 +8,7 @@
 
 import Foundation
 import Gloss
+import MapKit
 
 struct Weather: Decodable {
     
@@ -140,9 +141,15 @@ extension Weather {
     
     func toUnit(value: Double, temperatureType: VisibleType.Degree) -> String {
         switch temperatureType {
-        case .celsius: return "\(String(format:"%.0f", value - 273.15))°C"
-        case .fahrenheit: return "\(String(format:"%.0f", value * (9/5) - 459.67))°F"
-        case .kelvin: return "\(String(format:"%.0f", value))°K"
+        case .celsius: return "\(String(format:"%.0f", value - 273.15))\(temperatureType.rawValue)"
+        case .fahrenheit: return "\(String(format:"%.0f", value * (9/5) - 459.67))\(temperatureType.rawValue)"
+        case .kelvin: return "\(String(format:"%.0f", value))\(temperatureType.rawValue)"
         }
+    }
+    
+    static func distance(fromLocation: CLLocation, inKilometers: Double, weatherData: [Weather]?) -> [Weather]? {
+        let inMeters = inKilometers * 1000
+        let filter = weatherData?.filter({ CLLocation(latitude: $0.coordinates?.latitude ?? 0, longitude: $0.coordinates?.longitude ?? 0).distance(from: fromLocation) <= inMeters })
+        return filter
     }
 }

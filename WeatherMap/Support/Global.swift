@@ -65,7 +65,7 @@ struct VisibleType {
     enum Degree: String {
         case celsius = "ºC"
         case fahrenheit = "ºF"
-        case kelvin = "K"
+        case kelvin = "ºK"
     }
     
     enum VisibleMode {

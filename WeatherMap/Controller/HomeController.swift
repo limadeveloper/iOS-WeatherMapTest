@@ -23,6 +23,7 @@ class HomeController: UIViewController {
     fileprivate var tableData: [Weather]?
     fileprivate var annotations: [AnnotationMap]?
     fileprivate var amountResults = 50
+    fileprivate var radiusInKilometers: Double = 50
     fileprivate var degreeButton: UIBarButtonItem!
     fileprivate var visibleModeButton: UIBarButtonItem!
     fileprivate var degreeTypeSelected: VisibleType.Degree = .celsius
@@ -220,7 +221,7 @@ extension HomeController: CLLocationManagerDelegate {
                 self?.tableData = []
                 self?.annotations = []
                 
-                self?.tableData = data
+                self?.tableData = Weather.distance(fromLocation: location, inKilometers: self!.radiusInKilometers, weatherData: data)
                 self?.annotations = AnnotationMap.getAnnotations(fromWeatherData: self?.tableData, temperatureType: self?.degreeTypeSelected)
                 
                 self?.mapView.setRegion(region, animated: true)
@@ -236,10 +237,10 @@ extension HomeController: CLLocationManagerDelegate {
                 self?.tableView.reloadData()
                 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                
-                manager.stopUpdatingLocation()
             }
         }
+        
+        manager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
